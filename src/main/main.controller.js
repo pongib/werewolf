@@ -5,12 +5,13 @@
     .module('werewolf')
     .controller('werewolfController', werewolfController);
 
-  function werewolfController (Player) {
+  function werewolfController (Player, RandomEvent) {
     var vm = this, player;
     vm.playerName = '';
-    vm.playerSilent = '';
+    vm.eventWerewolf = '';
     vm.playerNameSet = [];
     vm.playerDeadSet = [];
+
     vm.playerType = {
       werewolf: 'werewolf',
       villager: 'villager',
@@ -45,11 +46,9 @@
       vm.playerNameSet.splice(index, 1);
     };
 
-    vm.randomSilent = function() {
-      return vm.playerSilent = 'five';
+    vm.randomEvent = function() {
+      vm.eventWerewolf = RandomEvent.random();
+      console.log(vm.eventWerewolf);
     };
-
-
-
   }
 })();

@@ -13,7 +13,7 @@
 
     return {
       random: function() {
-        index = Math.floor((Math.random()*vm.events.length));
+        index = Math.floor((Math.random()*events.length));
         answer = events[index];
         return answer;
       }
