@@ -3,20 +3,73 @@
   <head>
     <meta charset="utf-8">
     <title>Easy Werewolf</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body ng-app="werewolf">
     <div class="container" ng-controller="werewolfController as ww">
       <form ng-submit="ww.addPlayer(ww.playerName)">
         <input type="text" ng-model="ww.playerName">
       </form>
-      <ul>
-        <li ng-repeat="name in ww.playerNameSet">
-          {{name}}
-        </li>
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <td>Werewolf</td>
+            <td>Seer</td>
+            <td>Dead</td>
+            <td>Name</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in ww.showPlayer()">
+            <td>
+              <input type="radio" ng-model="item.type" ng-value="ww.playerType.werewolf">
+            </td>
+            <td>
+              <input type="radio" ng-model="item.type" ng-value="ww.playerType.seer">
+            </td>
+            <td>
+              <input type="checkbox" ng-model="item.dead" ng-value="true">
+            </td>
+            <td>
+              <div ng-class="{'done-item': item.dead}">
+                {{item.name}} {{item}}
+              </div>
+            </td>
+            <td>
+              <div class="">
+                <button type="button" ng-click="ww.deletePlayer($index)">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div ng-show="ww.playerDeadSet.length > 0" class="">
+        <table>
+          <thead>
+            <tr>
+              <td>No.</td>
+              <td>Name</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="name in ww.showDeadPlayer()">
+              <td>
+                {{$index + 1}}
+              </td>
+              <td>
+                {{name}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
     <script src="bower_components/angular/angular.js" charset="utf-8"></script>
     <script src="bower_components/angular-mocks/angular-mocks.js" charset="utf-8"></script>
     <script src="src/main/main.controller.js" charset="utf-8"></script>
+    <script src="src/main/main.player.service.js" charset="utf-8"></script>
+    <script src="src/main/main.random.service.js" charset="utf-8"></script>
   </body>
 </html>

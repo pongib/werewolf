@@ -1,0 +1,32 @@
+
+html, body, .container{
+  height: 100%;
+}
+.container{
+  display: table;
+  vertical-align: middle;
+  max-width: 700px;
+}
+.vertical-center-row{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+li.ui-state-default {
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #ddd;
+
+  .done-item {
+    text-decoration: line-through;
+  }
+}
+
+.done-item {
+  text-decoration: line-through;
+}
+
+.radio {
+  display: inline-block;
+  margin: 10px;
+}
