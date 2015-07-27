@@ -37,9 +37,7 @@
               </div>
             </td>
             <td>
-              <div class="">
-                <button type="button" ng-click="ww.deletePlayer($index)">Delete</button>
-              </div>
+              <button type="button" id="btnDeletePlayer" ng-click="ww.deletePlayer($index)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -65,7 +63,7 @@
         </table>
       </div>
       <div class="">
-        <button type="button" ng-click="ww.randomEvent()">Randon Event</button>
+        <button type="button" id="randomevent" ng-click="ww.randomEvent()">Randon Event</button>
         <h1>{{ww.eventWerewolf}}</h1>
       </div>
     </div>

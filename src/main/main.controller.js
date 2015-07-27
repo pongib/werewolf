@@ -23,6 +23,7 @@
     };
 
 
+
     vm.showPlayer = function() {
       return vm.playerNameSet;
     };
