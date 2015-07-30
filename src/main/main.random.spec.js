@@ -2,7 +2,7 @@
   describe('random service', function() {
     var subject, RandomEvent;
 
-    beforeEach(module('werewolf'));
+    beforeEach(module('main'));
 
     beforeEach(inject(function(_RandomEvent_) {
       RandomEvent = _RandomEvent_;

@@ -1,6 +1,6 @@
 (function() {
   angular
-    .module('werewolf')
+    .module('main')
     .factory('RandomEvent', RandomEvent);
 
   function RandomEvent() {

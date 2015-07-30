@@ -2,10 +2,10 @@
   describe('werewolf', function() {
     describe('main page', function() {
       var subject, Player, vm = this, sandbox, RandomEvent;
-      beforeEach(module('werewolf'));
+      beforeEach(module('main'));
 
       beforeEach(inject(function($controller, _Player_, _RandomEvent_) {
-        subject = $controller('werewolfController');
+        subject = $controller('mainController');
         RandomEvent = _RandomEvent_;
         Player = _Player_;
       }));
@@ -40,7 +40,7 @@
           subject.addPlayer('pingpong');
           subject.addPlayer('gib');
           subject.addPlayer('khing');
-          subject.deletePlayer(2)
+          subject.deletePlayer(2);
           expect(subject.showPlayer()).to.eql([vm.item1, vm.item2]);
         });
 

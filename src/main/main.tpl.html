@@ -1,0 +1,61 @@
+<div class="container">
+  <form ng-submit="main.addPlayer(main.playerName)">
+    <input type="text" ng-model="main.playerName">
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <td>Werewolf</td>
+        <td>Seer</td>
+        <td>Dead</td>
+        <td>Name</td>
+        <td>Delete</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in main.showPlayer()">
+        <td>
+          <input type="radio" ng-model="item.type" ng-value="main.playerType.werewolf">
+        </td>
+        <td>
+          <input type="radio" ng-model="item.type" ng-value="main.playerType.seer">
+        </td>
+        <td>
+          <input type="checkbox" ng-model="item.dead" ng-value="true">
+        </td>
+        <td>
+          <div ng-class="{'done-item': item.dead}">
+            {{item.name}} {{item}}
+          </div>
+        </td>
+        <td>
+          <button type="button" id="btnDeletePlayer" ng-click="main.deletePlayer($index)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-show="main.playerDeadSet.length > 0" class="">
+    <table>
+      <thead>
+        <tr>
+          <td>No.</td>
+          <td>Name</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="name in main.showDeadPlayer()">
+          <td>
+            {{$index + 1}}
+          </td>
+          <td>
+            {{name}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="">
+    <button type="button" id="randomevent" ng-click="main.randomEvent()">Randon Event</button>
+    <h1>{{main.eventWerewolf}}</h1>
+  </div>
+</div>

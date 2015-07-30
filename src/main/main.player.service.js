@@ -1,6 +1,6 @@
 (function() {
   angular
-    .module('werewolf')
+    .module('main')
     .service('Player', function() { return Player; });
 
   function Player (_name_, _type_, _dead_) {

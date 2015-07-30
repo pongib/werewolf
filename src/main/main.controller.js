@@ -1,11 +1,10 @@
 (function() {
-  angular.module('werewolf', []);
 
   angular
-    .module('werewolf')
-    .controller('werewolfController', werewolfController);
+    .module('main')
+    .controller('mainController', mainController);
 
-  function werewolfController (Player, RandomEvent) {
+  function mainController (Player, RandomEvent) {
     var vm = this, player;
     vm.playerName = '';
     vm.eventWerewolf = '';
@@ -34,8 +33,10 @@
 
     vm.addPlayer = function(name) {
       player = new Player(name);
-      vm.playerNameSet.push(player);
-      vm.playerName = '';
+      if(player.hasContent()) {
+        vm.playerNameSet.push(player);
+        vm.playerName = '';
+      }
     };
 
     vm.addDeadPlayer = function(name) {
