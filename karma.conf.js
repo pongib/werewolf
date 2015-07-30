@@ -25,7 +25,9 @@ module.exports = function(config) {
       'src/main/**/*.service.js',
       'src/select/**/*.spec.js',
       'src/select/**/*.config.js',
-      'src/select/**/*.controller.js'
+      'src/select/**/*.controller.js',
+      'src/share/**/*.service.js',
+      'src/share/**/*.spec.js'
     ],
 
 

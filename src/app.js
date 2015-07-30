@@ -6,7 +6,8 @@
   // because it dont't have DI on leaf module
   angular.module('werewolf', ['ui.router',
     'main',
-    'select'
+    'select',
+    'roles.service'
     ]) //setter
     .config(configState);
 

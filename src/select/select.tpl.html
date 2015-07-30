@@ -1,4 +1,13 @@
 <div class="">
   <h3>THIS IS SELECT PAGE</h3>
+  <div class="">
+    <h5>select role</h5>
+    <div class="">
+      <label ng-repeat="role in select.displayRoles()">
+        <input type="checkbox" value="{{role}}" ng-click="select.addRole(role)">{{role}}
+      </label>
+    </div>
+    {{select.selectedList}}
+  </div>
   <button ui-sref="main">Confirm</button>
 </div>
