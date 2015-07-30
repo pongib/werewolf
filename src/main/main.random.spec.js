@@ -1,9 +1,9 @@
 (function() {
   describe('random service', function() {
     var subject, RandomEvent;
-
-    beforeEach(module('main'));
-
+    // beforeEach(module('ui.router'));
+    // beforeEach(module('main'));
+    beforeEach(module('werewolf'));
     beforeEach(inject(function(_RandomEvent_) {
       RandomEvent = _RandomEvent_;
       console.log(RandomEvent);

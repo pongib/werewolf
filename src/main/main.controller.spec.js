@@ -2,7 +2,8 @@
   describe('werewolf', function() {
     describe('main page', function() {
       var subject, Player, vm = this, sandbox, RandomEvent;
-      beforeEach(module('main'));
+
+      beforeEach(module('werewolf'));
 
       beforeEach(inject(function($controller, _Player_, _RandomEvent_) {
         subject = $controller('mainController');

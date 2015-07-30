@@ -2,7 +2,7 @@
   describe('Player', function() {
     var subject, Player;
 
-    beforeEach(module('main'));
+    beforeEach(module('werewolf'));
 
     beforeEach(inject(function(_Player_) {
       Player = _Player_;

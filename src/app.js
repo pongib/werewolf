@@ -1,8 +1,7 @@
 (function(){
-  'use strict'
+  'use strict';
 
-  angular.module('werewolf', [
-    'ui.router',
+  angular.module('werewolf', [  'ui.router',
     'main',
     'select'
     ]) //setter
