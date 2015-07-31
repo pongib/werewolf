@@ -13,6 +13,12 @@
     };
 
 
+
+    vm.addRole = function(role) {
+      Roles.addSelectedRole(role);
+      vm.selectedList = Roles.selectedRole;  
+    };
+
   }
 
 })();
