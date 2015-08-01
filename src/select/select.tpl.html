@@ -7,7 +7,16 @@
         <input type="checkbox" value="{{role}}" ng-click="select.addRole(role)">{{role}}
       </label>
     </div>
-    {{select.selectedList}}
+    {{select.rolesSelectedList}}
+  </div>
+  <div class="">
+    <h5>select players</h5>
+    <div class="">
+      <label ng-repeat="player in select.displayPlayers()">
+        <input type="checkbox" value="{{player}}" ng-click="select.addPlayer(player)">{{player}}
+      </label>
+    </div>
+    {{select.playersSelectedList}}
   </div>
   <button ui-sref="main">Confirm</button>
 </div>

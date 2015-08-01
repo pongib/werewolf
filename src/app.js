@@ -7,7 +7,8 @@
   angular.module('werewolf', ['ui.router',
     'main',
     'select',
-    'roles.service'
+    'roles.service',
+    'players.service'
     ]) //setter
     .config(configState);
 

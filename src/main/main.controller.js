@@ -4,14 +4,14 @@
     .module('main')
     .controller('mainController', mainController);
 
-  function mainController (Player, RandomEvent, Roles) {
+  function mainController (Player, RandomEvent, Roles, Players) {
     var vm = this, player;
     vm.playerName = '';
     vm.eventWerewolf = '';
     vm.playerNameSet = [];
     vm.playerDeadSet = [];
-  
-
+    vm.rolesSelectedList = Roles.rolesSelectedList;
+    vm.playersSelectedList = Players.playersSelectedList;
     vm.playerType = {
       werewolf: 'werewolf',
       villager: 'villager',

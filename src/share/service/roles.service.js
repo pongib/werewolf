@@ -11,19 +11,22 @@
       'Seer','Spellcaster','Villager', 'Sorcerer', 'Minion','Werewolf', 'Wolf Cub','Cursed',
       'Doppelganger','Vampire'
     ];
-    vm.rolesSelectdList = [];
+
+    vm.rolesSelectedList = [];
+
+
     return {
       numberOfRoles: vm.roles.length,
-      rolesSelectdList: vm.rolesSelectdList,
+      rolesSelectedList: vm.rolesSelectedList,
       displayRoles: function () {
         return vm.roles;
       },
       addSelectedRole: function(role) {
-        var id = vm.rolesSelectdList.indexOf(role);
+        var id = vm.rolesSelectedList.indexOf(role);
         if(id === -1) {
-            vm.rolesSelectdList.push(role);
+            vm.rolesSelectedList.push(role);
         }else if(id >= 0){
-            vm.rolesSelectdList.splice(id, 1);
+            vm.rolesSelectedList.splice(id, 1);
         }
       }
     };

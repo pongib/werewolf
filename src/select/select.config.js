@@ -1,7 +1,7 @@
 (function() {
   // hesitate to inject or not inject 'ui.router' to this DI
   // care performance and easy to read and maintain
-  angular.module('select', ['roles.service']);
+  angular.module('select', []);
 
   angular
     .module('select')
