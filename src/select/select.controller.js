@@ -12,6 +12,10 @@
       return Roles.displayRoles();
     };
 
+    vm.addRole = function(role) {
+      Roles.addSelectedRole(role);
+      vm.selectedList = Roles.rolesSelectdList;
+    };
 
   }
 

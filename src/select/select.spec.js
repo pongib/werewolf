@@ -12,6 +12,11 @@
       it('should display roles from roles service', function() {
         expect(subject.displayRoles()).to.equal(Roles.displayRoles());
       });
+
+      it('should add role to Roles service', function() {
+        subject.addRole('werewolf');
+        expect(Roles.rolesSelectdList).to.deep.equal(['werewolf']);
+      });
     });
   });
 })();
