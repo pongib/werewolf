@@ -1,22 +1,27 @@
-<div class="">
-  <h3>THIS IS SELECT PAGE</h3>
+<div class="container">
+  <h3 class="text-center">THIS IS SELECT PAGE</h3>
   <div class="">
-    <h5>select role</h5>
-    <div class="">
-      <label ng-repeat="role in select.displayRoles()">
-        <input type="checkbox" value="{{role}}" ng-click="select.addRole(role)">{{role}}
+    <h3 class="text-center">Select Role</h3>
+    <div class="btn-group">
+      <label class="btn btn-primary" ng-repeat="role in select.displayRoles()">
+        <input type="checkbox" value="{{role}}" ng-click="select.addRole(role)" >{{role}}
       </label>
     </div>
+
+
     <!-- {{select.rolesSelectedList}} -->
   </div>
   <div class="">
-    <h5>select players</h5>
-    <div class="">
-      <label ng-repeat="player in select.displayPlayers()">
+    <h3 class="text-center">Select Players</h3>
+    <div class="btn-group">
+      <label class="btn btn-primary" ng-repeat="player in select.displayPlayers()">
         <input type="checkbox" value="{{player}}" ng-click="select.addPlayer(player)">{{player}}
       </label>
     </div>
     <!-- {{select.playersSelectedList}} -->
   </div>
-  <button ui-sref="main">Confirm</button>
+  <div class="text-center" style="margin-top:30px;">
+    <button ui-sref="main" class="btn btn-success btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
+  </div>
+
 </div>

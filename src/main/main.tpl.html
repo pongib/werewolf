@@ -1,46 +1,66 @@
 <div class="container">
   <!-- <label>Selected roles is   {{main.rolesSelectedList}} </label><br/>
   <label>Selected  players is   {{main.playersSelectedList}} </label> -->
-  <form ng-submit="main.addPlayer(main.playerName)">
+  <!-- <form ng-submit="main.addPlayer(main.playerName)">
     <input type="text" ng-model="main.playerName">
-  </form>
+  </form> -->
+  <div class="" ng-hide="main.playerNameSet.length == 0">
+    <h3 class="text-center">Kill Werewolf or Die</h3>
+    <table  class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <td colspan="{{main.rolesSelectedList.length}}">
+            Roles
+          </td>
+          <td ng-repeat="role in main.displayTableHead()">
+            {{role}}
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in main.showPlayer()">
+          <!-- <td>
+            <input type="radio" ng-model="item.type" ng-value="main.playerType.werewolf">
+          </td> -->
+          <!-- value for string only if want non-string (boolean, number, obj) use ng-value instead-->
 
-  <table>
-    <thead>
-      <tr>
-        <td ng-repeat="role in main.displayTableHead()">
-          {{role}}
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="item in main.showPlayer()">
-        <!-- <td>
-          <input type="radio" ng-model="item.type" ng-value="main.playerType.werewolf">
-        </td> -->
-        <!-- value for string only if want non-string (boolean, number, obj) use ng-value instead-->
-        <td ng-repeat="role in main.rolesSelectedList">
-          <input type="radio" ng-model="item.type" value="{{role}}">
-        </td>
-        <td>
-          <input type="checkbox" ng-model="item.silent" >
-        </td>
-        <td>
-          <input type="checkbox" ng-model="item.dead" >
-        </td>
-        <td>
-          <div ng-class="{'done-item': item.dead}">
-            {{item.name}}
-          </div>
-        </td>
-        <td>
-          <button type="button" id="btnDeletePlayer" ng-click="main.deletePlayer($index)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div ng-show="main.playerDeadSet.length > 0" class="">
-    <table>
+          <td  ng-model="item.type" ng-repeat="role in main.rolesSelectedList" bs-radio-group>
+            <label class="btn btn-default">
+              <input type="radio" value="{{role}}">{{role}}
+            </label>
+          </td>
+
+
+
+          <td>
+            <label class="btn btn-warning">
+              <input type="checkbox" ng-model="item.silent" bs-checkbox> Silent
+            </label>
+          </td>
+          <td>
+            <label class="btn btn-success">
+              <input type="checkbox" ng-model="item.dead"  bs-checkbox> Dead
+            </label>
+          </td>
+
+
+          <td>
+            <div ng-class="{'done-item': item.dead}">
+              {{item.name}}
+            </div>
+          </td>
+          <td>
+            <button class="btn btn-danger" type="button" id="btnDeletePlayer" ng-click="main.deletePlayer($index)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div ng-show="main.playerDeadSet.length > 0">
+    <h3 class="text-center">Dead Player</h3>
+    <table class="table table-striped text-center">
       <thead>
         <tr>
           <td>No.</td>
@@ -63,8 +83,8 @@
       </tbody>
     </table>
   </div>
-  <div class="">
-    <button type="button" id="randomevent" ng-click="main.randomEvent()">Randon Event</button>
+  <div class="text-center" style="margin-top: 30px;">
+    <button class="btn btn-danger btn-circle btn-xl" type="button" id="randomevent" ng-click="main.randomEvent()"><i class="glyphicon glyphicon-fire"></i></button>
     <h1>{{main.eventWerewolf}}</h1>
   </div>
 </div>

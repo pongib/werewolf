@@ -8,12 +8,12 @@
     vm.rolesList = [];
     vm.rolesSelectedList = [];
     vm.playersSelectedList = [];
-  
+
     vm.displayRoles = function() {
       return Roles.displayRoles();
     };
 
-    vm.displayPlayers = function () {
+    vm.displayPlayers = function() {
       return Players.displayPlayers();
     };
 
@@ -27,6 +27,11 @@
       vm.playersSelectedList = Players.playersSelectedList;
     };
 
+
+    vm.aside = {
+      "title": "Title",
+      "content": "Hello Aside<br />This is a multiline message!"
+    };
   }
 
 })();
