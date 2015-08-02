@@ -55,8 +55,7 @@
     };
 
     vm.displayTableHead = function () {
-      vm.rolesSelectedList = Roles.rolesSelectedList.concat(['Dead', 'Name', 'Delete']);
-      return vm.rolesSelectedList;
+      return Roles.rolesSelectedList.concat(['Dead', 'Name', 'Delete']);
     };
   }
 })();

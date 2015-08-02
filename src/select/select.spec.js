@@ -3,10 +3,11 @@
     var subject, Roles, Players;
     beforeEach(module('werewolf'));
 
-    beforeEach(inject(function($controller, _Roles_, _Players_) {
+    beforeEach(inject(function($controller, _Roles_, _Players_, _Player_) {
       subject = $controller('selectController');
       Roles = _Roles_;
       Players = _Players_;
+      Player = _Player_;
     }));
 
     describe('display roles', function() {
@@ -27,7 +28,7 @@
 
       it('should add player to Players service', function() {
         subject.addPlayer('พี่แดน');
-        expect(Players.playersSelectedList).to.deep.equal(['พี่แดน']);
+        expect(Players.playersSelectedList).to.deep.equal([new Player('พี่แดน')]);
       });
     });
 

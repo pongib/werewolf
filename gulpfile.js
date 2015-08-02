@@ -19,10 +19,10 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('serve', ['browser-sync', 'tdd'], function() {
-  // gulp.watch(['src/**/*.js'], browserSync.reload);
+gulp.task('serve', ['browser-sync'], function() {
+  gulp.watch(['src/**/*.js', 'index.html', 'src/**/*.tpl.html'], browserSync.reload);
   // gulp.watch(['src/**/*.tpl.html'], browserSync.reload);
-  gulp.watch('src/**/*.tpl.html').on('change', browserSync.reload);
-  gulp.watch(['index.html'], browserSync.reload);
-  gulp.watch('src/**/*.js').on('change', browserSync.reload);
+  // gulp.watch('src/**/*.tpl.html').on('change', browserSync.reload);
+  // gulp.watch(['index.html'], browserSync.reload);
+  // gulp.watch('src/**/*.*.js').on('change', browserSync.reload);
 });
