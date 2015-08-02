@@ -13,13 +13,16 @@ gulp.task('tdd', function(done) {
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
-      baseDir: './'
+      baseDir: './',
+      browser: "google chrome"
     }
   });
 });
 
 gulp.task('serve', ['browser-sync', 'tdd'], function() {
-  gulp.watch(['src/**/*.js'], browserSync.reload);
-  gulp.watch(['src/**/*.tpl.html'], browserSync.reload);
+  // gulp.watch(['src/**/*.js'], browserSync.reload);
+  // gulp.watch(['src/**/*.tpl.html'], browserSync.reload);
+  gulp.watch('src/**/*.tpl.html').on('change', browserSync.reload);
   gulp.watch(['index.html'], browserSync.reload);
+  gulp.watch('src/**/*.js').on('change', browserSync.reload);
 });

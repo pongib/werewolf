@@ -53,5 +53,10 @@
       vm.eventWerewolf = RandomEvent.random();
       console.log(vm.eventWerewolf);
     };
+
+    vm.displayTableHead = function () {
+      vm.rolesSelectedList = Roles.rolesSelectedList.concat(['Dead', 'Name', 'Delete']);
+      return vm.rolesSelectedList;
+    };
   }
 })();

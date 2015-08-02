@@ -1,19 +1,26 @@
 (function() {
   describe('werewolf', function() {
     describe('main page', function() {
-      var subject, Player, vm = this, sandbox, RandomEvent;
+      var subject, Player, vm = this, sandbox, RandomEvent, Players, Roles;
 
       beforeEach(module('werewolf'));
 
-      beforeEach(inject(function($controller, _Player_, _RandomEvent_) {
+      beforeEach(inject(function($controller, _Player_, _RandomEvent_, _Players_, _Roles_) {
         subject = $controller('mainController');
         RandomEvent = _RandomEvent_;
         Player = _Player_;
+        Players = _Players_;
+        Roles = _Roles_;
       }));
 
       describe('default', function() {
         it('should set playerNameSet to blank', function() {
           expect(subject.playerNameSet).to.eql([]);
+        });
+
+        it('should contain Dead and Name and Delete column concat with roles', function() {
+          Roles.rolesSelectedList = ['Werewolf', 'Seer', 'Prince'];
+          expect(subject.displayTableHead()).to.deep.equal(['Werewolf', 'Seer', 'Prince', 'Dead', 'Name', 'Delete']);
         });
       });
 

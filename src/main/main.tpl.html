@@ -8,11 +8,9 @@
   <table>
     <thead>
       <tr>
-        <td>Werewolf</td>
-        <td>Seer</td>
-        <td>Dead</td>
-        <td>Name</td>
-        <td>Delete</td>
+        <td ng-repeat="role in main.displayTableHead()">
+          {{role}}
+        </td>
       </tr>
     </thead>
     <tbody>
