@@ -8,11 +8,15 @@
     'main',
     'select',
     'roles.service',
-    'players.service'
-    ]) //setter
-    .config(configState);
+    'players.service',
+    'mgcrea.ngStrap',
+    'ngAnimate'
+  ]); //setter
 
-  angular.module('werewolf'); //getter
+
+  angular
+    .module('werewolf')
+    .config(configState); //getter
 
     function configState($stateProvider, $urlRouterProvider){
       $urlRouterProvider.otherwise('/select');
