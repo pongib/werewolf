@@ -18,9 +18,9 @@
           expect(subject.playerNameSet).to.eql([]);
         });
 
-        it('should contain Dead and Name and Delete column concat with roles', function() {
-          Roles.rolesSelectedList = ['Werewolf', 'Seer', 'Prince'];
-          expect(subject.displayTableHead()).to.deep.equal(['Werewolf', 'Seer', 'Prince', 'Silent', 'Dead', 'Name', 'Delete']);
+        it('should contain Silent, Dead, Name and Delete column', function() {
+          subject.headerTable = ['Silent', 'Dead', 'Name', 'Delete'];
+          expect(subject.displayTableHead()).to.deep.equal(subject.headerTable);
         });
       });
 

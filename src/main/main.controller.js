@@ -8,6 +8,7 @@
     var vm = this, player;
     vm.playerName = '';
     vm.eventWerewolf = '';
+    vm.headerTable = ['Silent', 'Dead', 'Name', 'Delete'];
     vm.playerNameSet = Players.playersSelectedList;
     vm.playerDeadSet = [];
     vm.rolesSelectedList = Roles.rolesSelectedList;
@@ -55,7 +56,7 @@
     };
 
     vm.displayTableHead = function () {
-      return ['Silent', 'Dead', 'Name', 'Delete'];
+      return vm.headerTable;
     };
   }
 })();
