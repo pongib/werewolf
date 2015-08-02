@@ -25,6 +25,11 @@
         expect(subject.dead).to.be.true;
       });
 
+      it('should set silent', function() {
+        subject = new Player('pongtsu', 'werewolf', true, true);
+        expect(subject.silent).to.be.true;
+      });
+
       it('should set type to villager when not set type', function() {
         subject = new Player('pongtsu');
         expect(subject.type).to.equal('villager');
@@ -33,6 +38,11 @@
       it('should set dead to false when not set dead', function() {
         subject = new Player('pongtsu');
         expect(subject.dead).to.be.false;
+      });
+
+      it('should set silent to false when not set silent', function() {
+        subject = new Player('pongtsu');
+        expect(subject.silent).to.be.false;
       });
     });
 

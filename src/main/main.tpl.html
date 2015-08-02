@@ -1,6 +1,6 @@
 <div class="container">
-  <label>Selected roles is   {{main.rolesSelectedList}} </label><br/>
-  <label>Selected  plyers is   {{main.playersSelectedList}} </label>
+  <!-- <label>Selected roles is   {{main.rolesSelectedList}} </label><br/>
+  <label>Selected  players is   {{main.playersSelectedList}} </label> -->
   <form ng-submit="main.addPlayer(main.playerName)">
     <input type="text" ng-model="main.playerName">
   </form>
@@ -15,18 +15,22 @@
     </thead>
     <tbody>
       <tr ng-repeat="item in main.showPlayer()">
-        <td>
+        <!-- <td>
           <input type="radio" ng-model="item.type" ng-value="main.playerType.werewolf">
+        </td> -->
+        <!-- value for string only if want non-string (boolean, number, obj) use ng-value instead-->
+        <td ng-repeat="role in main.rolesSelectedList">
+          <input type="radio" ng-model="item.type" value="{{role}}">
         </td>
         <td>
-          <input type="radio" ng-model="item.type" ng-value="main.playerType.seer">
+          <input type="checkbox" ng-model="item.silent" >
         </td>
         <td>
-          <input type="checkbox" ng-model="item.dead" ng-value="true">
+          <input type="checkbox" ng-model="item.dead" >
         </td>
         <td>
           <div ng-class="{'done-item': item.dead}">
-            {{item.name}} {{item}}
+            {{item.name}}
           </div>
         </td>
         <td>
@@ -41,15 +45,19 @@
         <tr>
           <td>No.</td>
           <td>Name</td>
+          <td>Type</td>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="name in main.showDeadPlayer()">
+        <tr ng-repeat="item in main.showDeadPlayer()">
           <td>
             {{$index + 1}}
           </td>
           <td>
-            {{name}}
+            {{item.name}}
+          </td>
+          <td>
+            {{item.type}}
           </td>
         </tr>
       </tbody>

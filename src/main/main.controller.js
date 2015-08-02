@@ -8,7 +8,7 @@
     var vm = this, player;
     vm.playerName = '';
     vm.eventWerewolf = '';
-    vm.playerNameSet = [];
+    vm.playerNameSet = Players.playersSelectedList;
     vm.playerDeadSet = [];
     vm.rolesSelectedList = Roles.rolesSelectedList;
     vm.playersSelectedList = Players.playersSelectedList;
@@ -55,7 +55,7 @@
     };
 
     vm.displayTableHead = function () {
-      return Roles.rolesSelectedList.concat(['Dead', 'Name', 'Delete']);
+      return Roles.rolesSelectedList.concat(['Silent', 'Dead', 'Name', 'Delete']);
     };
   }
 })();

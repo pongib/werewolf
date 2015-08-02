@@ -20,7 +20,7 @@
 
         it('should contain Dead and Name and Delete column concat with roles', function() {
           Roles.rolesSelectedList = ['Werewolf', 'Seer', 'Prince'];
-          expect(subject.displayTableHead()).to.deep.equal(['Werewolf', 'Seer', 'Prince', 'Dead', 'Name', 'Delete']);
+          expect(subject.displayTableHead()).to.deep.equal(['Werewolf', 'Seer', 'Prince', 'Silent', 'Dead', 'Name', 'Delete']);
         });
       });
 
@@ -45,9 +45,9 @@
         });
 
         it('should delete player from playerNameSet', function() {
-          subject.addPlayer('pingpong');
-          subject.addPlayer('gib');
-          subject.addPlayer('khing');
+          Players.addSelectedPlayer('pingpong');
+          Players.addSelectedPlayer('gib');
+          Players.addSelectedPlayer('khing');
           subject.deletePlayer(2);
           expect(subject.showPlayer()).to.eql([vm.item1, vm.item2]);
         });
