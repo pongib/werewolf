@@ -12,16 +12,16 @@
         expect(Roles.displayRoles().length).to.equal(Roles.numberOfRoles);
       });
 
-      it('should add selected role to roleSelected', function() {
+      it('should add select role to rolesSelectdList', function() {
         Roles.addSelectedRole('werewolf');
-        expect(Roles.selectedRole).to.deep.equal(['werewolf']);
+        expect(Roles.rolesSelectedList).to.deep.equal(['werewolf']);
       });
 
-      it('should delete same value from selectedRole', function() {
+      it('should remove exist role in rolesSelectdList when add same role again', function() {
         Roles.addSelectedRole('werewolf');
-        expect(Roles.selectedRole).to.deep.equal(['werewolf']);
+        expect(Roles.rolesSelectedList).to.deep.equal(['werewolf']);
         Roles.addSelectedRole('werewolf');
-        expect(Roles.selectedRole).to.deep.equal([]);
+        expect(Roles.rolesSelectedList).to.deep.equal([]);
       });
     });
   });

@@ -7,11 +7,16 @@
   angular.module('werewolf', ['ui.router',
     'main',
     'select',
-    'roles.service'
-    ]) //setter
-    .config(configState);
+    'roles.service',
+    'players.service',
+    'mgcrea.ngStrap',
+    'ngAnimate'
+  ]); //setter
 
-  angular.module('werewolf'); //getter
+
+  angular
+    .module('werewolf')
+    .config(configState); //getter
 
     function configState($stateProvider, $urlRouterProvider){
       $urlRouterProvider.otherwise('/select');

@@ -1,11 +1,13 @@
 (function() {
   describe('select page', function() {
-    var subject, Roles;
+    var subject, Roles, Players;
     beforeEach(module('werewolf'));
 
-    beforeEach(inject(function($controller, _Roles_) {
+    beforeEach(inject(function($controller, _Roles_, _Players_, _Player_) {
       subject = $controller('selectController');
       Roles = _Roles_;
+      Players = _Players_;
+      Player = _Player_;
     }));
 
     describe('display roles', function() {
@@ -13,10 +15,22 @@
         expect(subject.displayRoles()).to.equal(Roles.displayRoles());
       });
 
-      it('should add role to addRole function', function() {
+      it('should add role to Roles service', function() {
         subject.addRole('werewolf');
-        expect(Roles.selectedRole).to.contain('werewolf');
+        expect(Roles.rolesSelectedList).to.deep.equal(['werewolf']);
       });
     });
+
+    describe('display player', function() {
+      it('should display player from players service', function() {
+        expect(subject.displayPlayers()).to.equal(Players.displayPlayers());
+      });
+
+      it('should add player to Players service', function() {
+        subject.addPlayer('พี่แดน');
+        expect(Players.playersSelectedList).to.deep.equal([new Player('พี่แดน')]);
+      });
+    });
+
   });
 })();

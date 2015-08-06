@@ -18,6 +18,11 @@
     "underscore": "~1.8.3",
     "angular-bootstrap": "~0.13.0",
     "jquery": "~2.1.4",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "angular-strap": "~2.3.1",
+    "angular-motion": "~0.4.2",
+    "angular-animate": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "awesome-bootstrap-checkbox": "~0.3.4"
   }
 }

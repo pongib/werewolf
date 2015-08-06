@@ -4,13 +4,15 @@
     .module('main')
     .controller('mainController', mainController);
 
-  function mainController (Player, RandomEvent) {
+  function mainController (Player, RandomEvent, Roles, Players) {
     var vm = this, player;
     vm.playerName = '';
     vm.eventWerewolf = '';
-    vm.playerNameSet = [];
+    vm.headerTable = ['Silent', 'Dead', 'Name', 'Delete'];
+    vm.playerNameSet = Players.playersSelectedList;
     vm.playerDeadSet = [];
-
+    vm.rolesSelectedList = Roles.rolesSelectedList;
+    vm.playersSelectedList = Players.playersSelectedList;
     vm.playerType = {
       werewolf: 'werewolf',
       villager: 'villager',
@@ -51,6 +53,10 @@
     vm.randomEvent = function() {
       vm.eventWerewolf = RandomEvent.random();
       console.log(vm.eventWerewolf);
+    };
+
+    vm.displayTableHead = function () {
+      return vm.headerTable;
     };
   }
 })();

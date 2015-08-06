@@ -1,19 +1,26 @@
 (function() {
   describe('werewolf', function() {
     describe('main page', function() {
-      var subject, Player, vm = this, sandbox, RandomEvent;
+      var subject, Player, vm = this, sandbox, RandomEvent, Players, Roles;
 
       beforeEach(module('werewolf'));
 
-      beforeEach(inject(function($controller, _Player_, _RandomEvent_) {
+      beforeEach(inject(function($controller, _Player_, _RandomEvent_, _Players_, _Roles_) {
         subject = $controller('mainController');
         RandomEvent = _RandomEvent_;
         Player = _Player_;
+        Players = _Players_;
+        Roles = _Roles_;
       }));
 
       describe('default', function() {
         it('should set playerNameSet to blank', function() {
           expect(subject.playerNameSet).to.eql([]);
+        });
+
+        it('should contain Silent, Dead, Name and Delete column', function() {
+          subject.headerTable = ['Silent', 'Dead', 'Name', 'Delete'];
+          expect(subject.displayTableHead()).to.deep.equal(subject.headerTable);
         });
       });
 
@@ -38,9 +45,9 @@
         });
 
         it('should delete player from playerNameSet', function() {
-          subject.addPlayer('pingpong');
-          subject.addPlayer('gib');
-          subject.addPlayer('khing');
+          Players.addSelectedPlayer('pingpong');
+          Players.addSelectedPlayer('gib');
+          Players.addSelectedPlayer('khing');
           subject.deletePlayer(2);
           expect(subject.showPlayer()).to.eql([vm.item1, vm.item2]);
         });
