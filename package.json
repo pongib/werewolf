@@ -1,12 +1,12 @@
 {
   "name": "werewolf",
   "version": "1.0.0",
-  "description": "",
+  "description": "for test werewolf",
   "main": "index.js",
   "scripts": {
     "test": "./script/test"
   },
-  "author": "",
+  "author": "pongtsu",
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.4.1",
@@ -21,5 +21,29 @@
     "mocha": "^2.2.5",
     "phantomjs": "^1.9.17",
     "sinon": "^1.15.4"
-  }
+  },
+  "dependencies": {
+    "chai": "^3.2.0",
+    "bower": "^1.4.1",
+    "karma": "^0.13.3",
+    "browser-sync": "^2.8.0",
+    "gulp": "^3.9.0",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-sinon": "^1.0.4",
+    "phantomjs": "^1.9.17",
+    "sinon": "^1.15.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pongib/werewolf.git"
+  },
+  "keywords": [
+    "werewolf"
+  ],
+  "bugs": {
+    "url": "https://github.com/pongib/werewolf/issues"
+  },
+  "homepage": "https://github.com/pongib/werewolf#readme"
 }
