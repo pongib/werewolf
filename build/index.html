@@ -5,12 +5,11 @@
     <title>Easy Werewolf</title>
 
     <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/angular-motion/dist/angular-motion.css" />
     <!-- endbower -->
 
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="/bower_components/angular-motion/dist/angular-motion.css" media="screen" title="no title" charset="utf-8">
-  
+
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body ng-app="werewolf">
@@ -18,14 +17,6 @@
     <div ui-view></div>
 
     <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="../bower_components/angular-strap/dist/angular-strap.js"></script>
-    <script src="../bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
-    <script src="../bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
 
     <!-- inject script here -->
@@ -36,6 +27,18 @@
     <script src="/bower_components/angular-strap/dist/angular-strap.js" charset="utf-8"></script>
     <script src="/bower_components/angular-strap/dist/angular-strap.tpl.js" charset="utf-8"></script>
 
+
+    <!-- inject:js -->
+    <script src="/src/app/app.js"></script>
+    <script src="/src/app/main/main.config.js"></script>
+    <script src="/src/app/main/main.controller.js"></script>
+    <script src="/src/app/select/select.config.js"></script>
+    <script src="/src/app/select/select.controller.js"></script>
+    <script src="/src/app/main/service/main.player.service.js"></script>
+    <script src="/src/app/main/service/main.random.service.js"></script>
+    <script src="/src/app/share/service/players.service.js"></script>
+    <script src="/src/app/share/service/roles.service.js"></script>
+    <!-- endinject -->
 
     <script src="app/main/main.config.js" charset="utf-8"></script>
     <script src="app/main/main.controller.js" charset="utf-8"></script>

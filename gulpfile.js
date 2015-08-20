@@ -1,16 +1,31 @@
 var gulp = require('gulp');
+var path = require('path');
 var browserSync = require('browser-sync');
 var wiredep = require('wiredep').stream;
 var karma = require('karma').Server;
 var _ = require('underscore');
+var $ = require('gulp-load-plugins')();
+
+
+gulp.task('inject', function () {
+  var injectScripts = gulp.src([
+    './src/app/**/*.js',
+    '!./src/app/**/*.spec.js'
+  ]);
+
+  return gulp.src('./src/index.html')
+    .pipe($.inject(injectScripts))
+    .pipe(gulp.dest('./build'));
+});
 
 
 gulp.task('bower', function () {
-  gulp.src('./src/index.html')
+  gulp.src('/src/index.html')
     .pipe(wiredep({
-      directory: 'bower_components'
+      directory: 'bower_components',
+      exclude: [/jquery/]
     }))
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('/build'));
 });
 
 gulp.task('tdd', function(done) {
