@@ -13,7 +13,7 @@
         url: '/main',
         views: {
           '@': {
-            templateUrl: 'src/main/main.tpl.html',
+            templateUrl: 'app/main/main.tpl.html',
             controller: 'mainController as main'
           }
         }

@@ -13,7 +13,7 @@
         url: '/select',
         views: {
           '@': {
-            templateUrl: 'src/select/select.tpl.html',
+            templateUrl: 'app/select/select.tpl.html',
             controller: 'selectController as select'
           }
         }
