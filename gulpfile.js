@@ -34,12 +34,15 @@ gulp.task('tdd', function(done) {
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
-      baseDir: './src'
+      baseDir: './src',
+      routes: {
+        '/bower_components': 'bower_components'
+      }
     }
   });
 });
 
-gulp.task('serve', ['browser-sync', 'bower'], function() {
+gulp.task('serve', ['browser-sync', 'inject'], function() {
   gulp.watch(['src/**/*.js', 'src/index.html', 'src/**/*.tpl.html'], browserSync.reload);
   // gulp.watch(['src/**/*.tpl.html'], browserSync.reload);
   // gulp.watch('src/**/*.tpl.html').on('change', browserSync.reload);
