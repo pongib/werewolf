@@ -22,16 +22,16 @@ module.exports = function(config) {
       'bower_components/angular-strap/dist/angular-strap.tpl.js',
       'bower_components/angular-motion/dist/angular-motion.css',
       'bower_components/angular-animate/angular-animate.js',
-      'src/*.js',
-      'src/main/**/*.spec.js',
-      'src/main/**/*.config.js',
-      'src/main/**/*.controller.js',
-      'src/main/**/*.service.js',
-      'src/select/**/*.spec.js',
-      'src/select/**/*.config.js',
-      'src/select/**/*.controller.js',
-      'src/share/**/*.service.js',
-      'src/share/**/*.spec.js'
+      'src/app/*.js',
+      'src/app/main/**/*.spec.js',
+      'src/app/main/**/*.config.js',
+      'src/app/main/**/*.controller.js',
+      'src/app/main/**/*.service.js',
+      'src/app/select/**/*.spec.js',
+      'src/app/select/**/*.config.js',
+      'src/app/select/**/*.controller.js',
+      'src/app/share/**/*.service.js',
+      'src/app/share/**/*.spec.js'
     ],
 
 
