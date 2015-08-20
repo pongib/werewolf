@@ -1,7 +1,17 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
+var wiredep = require('wiredep').stream;
 var karma = require('karma').Server;
+var _ = require('underscore');
 
+
+gulp.task('bower', function () {
+  gulp.src('./src/index.html')
+    .pipe(wiredep({
+      directory: 'bower_components'
+    }))
+    .pipe(gulp.dest('./build'));
+});
 
 gulp.task('tdd', function(done) {
   new karma({
@@ -13,13 +23,12 @@ gulp.task('tdd', function(done) {
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
-      baseDir: './src',
-      browser: "firefox"
+      baseDir: './src'
     }
   });
 });
 
-gulp.task('serve', ['browser-sync'], function() {
+gulp.task('serve', ['browser-sync', 'bower'], function() {
   gulp.watch(['src/**/*.js', 'src/index.html', 'src/**/*.tpl.html'], browserSync.reload);
   // gulp.watch(['src/**/*.tpl.html'], browserSync.reload);
   // gulp.watch('src/**/*.tpl.html').on('change', browserSync.reload);
