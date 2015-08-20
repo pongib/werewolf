@@ -9,24 +9,20 @@ var $ = require('gulp-load-plugins')();
 
 gulp.task('inject', function () {
   var injectScripts = gulp.src([
+    './css/**/*.css',
     './src/app/**/*.js',
     '!./src/app/**/*.spec.js'
-  ]);
+  ], {read: false}); //no need to read file, for speed up inject time
 
   return gulp.src('./src/index.html')
     .pipe($.inject(injectScripts))
-    .pipe(gulp.dest('./build'));
-});
-
-
-gulp.task('bower', function () {
-  gulp.src('/src/index.html')
     .pipe(wiredep({
       directory: 'bower_components',
       exclude: [/jquery/]
     }))
-    .pipe(gulp.dest('/build'));
+    .pipe(gulp.dest('./build'));
 });
+
 
 gulp.task('tdd', function(done) {
   new karma({
