@@ -13,14 +13,14 @@ gulp.task('tdd', function(done) {
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
-      baseDir: './',
+      baseDir: './src',
       browser: "firefox"
     }
   });
 });
 
 gulp.task('serve', ['browser-sync'], function() {
-  gulp.watch(['src/**/*.js', 'index.html', 'src/**/*.tpl.html'], browserSync.reload);
+  gulp.watch(['src/**/*.js', 'src/index.html', 'src/**/*.tpl.html'], browserSync.reload);
   // gulp.watch(['src/**/*.tpl.html'], browserSync.reload);
   // gulp.watch('src/**/*.tpl.html').on('change', browserSync.reload);
   // gulp.watch(['index.html'], browserSync.reload);
