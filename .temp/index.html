@@ -10,11 +10,11 @@
 
     <!-- <link rel="stylesheet" href="/bower_components/angular-motion/dist/angular-motion.css" media="screen" title="no title" charset="utf-8"> -->
 
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <!-- inject:css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="app/share/share.css">
     <!-- endinject -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
   </head>
   <body ng-app="werewolf">
 
@@ -40,14 +40,14 @@
 
 
     <!-- inject:js -->
+    <script src="app/share/service/roles.service.js"></script>
+    <script src="app/share/service/players.service.js"></script>
     <script src="app/main/main.config.js"></script>
-    <script src="app/main/main.controller.js"></script>
+    <script src="app/main/service/main.random.service.js"></script>
+    <script src="app/main/service/main.player.service.js"></script>
     <script src="app/select/select.config.js"></script>
     <script src="app/select/select.controller.js"></script>
-    <script src="app/main/service/main.player.service.js"></script>
-    <script src="app/main/service/main.random.service.js"></script>
-    <script src="app/share/service/players.service.js"></script>
-    <script src="app/share/service/roles.service.js"></script>
+    <script src="app/main/main.controller.js"></script>
     <script src="app/app.js"></script>
     <!-- endinject -->
 

@@ -8,12 +8,17 @@ var $ = require('gulp-load-plugins')();
 
 
 gulp.task('inject', function() {
+  var injectStyle = gulp.src([
+    './src/app/**/*.css'
+  ], {
+    read: false
+  });
+
   var injectScripts = gulp.src([
-    './css/**/*.css',
     './src/app/**/*.js',
     '!./src/app/**/*.spec.js'
   ])
-  .pipe($.angularFilesort);
+  .pipe($.angularFilesort());
   // {
   //   read: false
   // });
@@ -27,12 +32,13 @@ gulp.task('inject', function() {
   };
 
   return gulp.src('./src/index.html')
+    .pipe($.inject(injectStyle, injectOptions))
     .pipe($.inject(injectScripts, injectOptions))
     .pipe(wiredep({
       directory: 'bower_components',
       exclude: [/jquery/]
     }))
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./.temp'));
 });
 
 
@@ -46,7 +52,7 @@ gulp.task('tdd', function(done) {
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
-      baseDir: ['./build', './src'],
+      baseDir: ['./.temp', './src'],
       routes: {
         '/bower_components': 'bower_components'
       }
@@ -55,9 +61,5 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('serve', ['browser-sync', 'inject'], function() {
-  gulp.watch(['src/**/*.js', 'src/index.html', 'src/**/*.tpl.html'], browserSync.reload);
-  // gulp.watch(['src/**/*.tpl.html'], browserSync.reload);
-  // gulp.watch('src/**/*.tpl.html').on('change', browserSync.reload);
-  // gulp.watch(['index.html'], browserSync.reload);
-  // gulp.watch('src/**/*.*.js').on('change', browserSync.reload);
+  gulp.watch(['src/**/*.js', 'src/index.html', 'src/**/*.tpl.html', '.temp/index.html'], browserSync.reload);
 });
