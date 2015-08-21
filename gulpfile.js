@@ -7,15 +7,27 @@ var _ = require('underscore');
 var $ = require('gulp-load-plugins')();
 
 
-gulp.task('inject', function () {
+gulp.task('inject', function() {
   var injectScripts = gulp.src([
     './css/**/*.css',
     './src/app/**/*.js',
     '!./src/app/**/*.spec.js'
-  ], {read: false}); //no need to read file, for speed up inject time
+  ])
+  .pipe($.angularFilesort);
+  // {
+  //   read: false
+  // });
+  // no need to read file, for speed up inject time
+  // because this plugin(gulp.src) analyzes the contents of each file to determine sort order.
+  // but gulp-angular-filesort depends on file contents, so don't use {read: false} here
+
+  var injectOptions = {
+    ignorePath: ['/src'],
+    addRootSlash: false
+  };
 
   return gulp.src('./src/index.html')
-    .pipe($.inject(injectScripts))
+    .pipe($.inject(injectScripts, injectOptions))
     .pipe(wiredep({
       directory: 'bower_components',
       exclude: [/jquery/]
@@ -34,7 +46,7 @@ gulp.task('tdd', function(done) {
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
-      baseDir: './src',
+      baseDir: ['./build', './src'],
       routes: {
         '/bower_components': 'bower_components'
       }
